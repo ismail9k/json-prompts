@@ -1,0 +1,30 @@
+{
+  "color_palette": {
+    "base": "crystal clear",
+    "gradient": [
+      {"color": "amethyst purple", "position": "core"},
+      {"color": "ice blue", "position": "surface"},
+      {"color": "silver", "position": "edges"},
+      {"color": "prismatic rainbow", "position": "refractions"}
+    ],
+    "blend_mode": "prismatic refraction",
+    "saturation": "medium",
+    "vibrance": "mystical and luminous"
+  },
+  "material_finish": {
+    "type": "multifaceted crystal gemstone",
+    "gloss": "diamond-like",
+    "reflectivity": "very high",
+    "depth_effect": "complex internal refractions with rainbow dispersion"
+  },
+  "lighting": {
+    "type": "magical ethereal light",
+    "source": "internal crystal luminescence",
+    "effects": ["rainbow prisms", "internal glow", "sparkle highlights"],
+    "shadow": "soft with colored caustics"
+  },
+  "background": {
+    "transparent": true,
+    "color": "misty ethereal void"
+  }
+}

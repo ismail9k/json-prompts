@@ -1,0 +1,29 @@
+{
+  "color_palette": {
+    "base": "deep black",
+    "gradient": [
+      {"color": "electric blue", "position": "center"},
+      {"color": "hot pink", "position": "edges"},
+      {"color": "lime green", "position": "accents"}
+    ],
+    "blend_mode": "additive glow",
+    "saturation": "high",
+    "vibrance": "intense and electric"
+  },
+  "material_finish": {
+    "type": "metallic chrome with neon tubes",
+    "gloss": "mirror-like",
+    "reflectivity": "high",
+    "depth_effect": "volumetric lighting with light rays"
+  },
+  "lighting": {
+    "type": "neon strip lighting",
+    "source": "multiple colored neon tubes",
+    "effects": ["bloom", "lens flare", "light streaks"],
+    "shadow": "sharp contrasts with colored shadows"
+  },
+  "background": {
+    "transparent": false,
+    "color": "deep space black"
+  }
+}

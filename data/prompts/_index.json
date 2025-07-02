@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2024-01-03T00:00:00Z",
+  "total_prompts": 3,
+  "categories": [
+    {
+      "id": "gradient",
+      "title": "Gradient",
+      "description": "Smooth color transitions and gradient effects",
+      "count": 1
+    },
+    {
+      "id": "neon",
+      "title": "Neon",
+      "description": "Electric neon and cyberpunk aesthetics", 
+      "count": 1
+    },
+    {
+      "id": "crystal",
+      "title": "Crystal",
+      "description": "Crystal and gemstone effects with refractions",
+      "count": 1
+    }
+  ],
+  "difficulty_levels": {
+    "beginner": 1,
+    "intermediate": 1,
+    "advanced": 1
+  },
+  "featured_prompts": [
+    "iridescent-sky-gradient",
+    "cyberpunk-neon"
+  ],
+  "prompts": [
+    {
+      "id": "iridescent-sky-gradient",
+      "title": "Iridescent Sky Gradient",
+      "slug": "iridescent-sky-gradient",
+      "category": "gradient",
+      "difficulty": "beginner",
+      "featured": true,
+      "tags": ["sky", "iridescent", "gradient", "ethereal", "translucent"],
+      "created_at": "2024-01-01T00:00:00Z",
+      "preview_url": "/data/prompts/iridescent-sky-gradient/preview.png"
+    },
+    {
+      "id": "cyberpunk-neon",
+      "title": "Cyberpunk Neon", 
+      "slug": "cyberpunk-neon",
+      "category": "neon",
+      "difficulty": "intermediate",
+      "featured": true,
+      "tags": ["cyberpunk", "neon", "futuristic", "electric", "chrome"],
+      "created_at": "2024-01-02T00:00:00Z",
+      "preview_url": "/data/prompts/cyberpunk-neon/preview.png"
+    },
+    {
+      "id": "ethereal-crystal",
+      "title": "Ethereal Crystal",
+      "slug": "ethereal-crystal", 
+      "category": "crystal",
+      "difficulty": "advanced",
+      "featured": false,
+      "tags": ["crystal", "ethereal", "translucent", "mystical", "gem"],
+      "created_at": "2024-01-03T00:00:00Z",
+      "preview_url": "/data/prompts/ethereal-crystal/preview.png"
+    }
+  ]
+}

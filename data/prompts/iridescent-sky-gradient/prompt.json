@@ -1,0 +1,30 @@
+{
+  "color_palette": {
+    "base": "translucent white",
+    "gradient": [
+      {"color": "sky blue", "position": "bottom"},
+      {"color": "lavender", "position": "middle"},
+      {"color": "pale pink", "position": "upper"},
+      {"color": "soft white", "position": "edges"}
+    ],
+    "blend_mode": "smooth radial and linear gradient mix",
+    "saturation": "soft-medium",
+    "vibrance": "ethereal and airy"
+  },
+  "material_finish": {
+    "type": "polished transparent acrylic",
+    "gloss": "high",
+    "reflectivity": "medium",
+    "depth_effect": "subsurface glow with subtle internal refraction"
+  },
+  "lighting": {
+    "type": "soft ambient light",
+    "source": "multiple diffused angles",
+    "effects": ["gentle bloom", "inner radiance"],
+    "shadow": "minimal, feathered"
+  },
+  "background": {
+    "transparent": true,
+    "color": "transparent"
+  }
+}
