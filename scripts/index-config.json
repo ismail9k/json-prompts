@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "featured_prompts": [
+    "iridescent-sky-gradient",
+    "cyberpunk-neon"
+  ],
+  "categories": [
+    {
+      "id": "gradient",
+      "title": "Gradient",
+      "description": "Smooth color transitions and gradient effects"
+    },
+    {
+      "id": "neon",
+      "title": "Neon",
+      "description": "Electric neon and cyberpunk aesthetics"
+    },
+    {
+      "id": "crystal",
+      "title": "Crystal",
+      "description": "Crystal and gemstone effects with refractions"
+    }
+  ]
+}
