@@ -36,12 +36,15 @@ jobs:
           version: latest
       
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile --shamefully-hoist
       
       - name: Build for production
-        run: pnpm generate
+        run: |
+          pnpm run generate-index
+          pnpm generate
         env:
           NODE_ENV: production
+          CI: true
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
