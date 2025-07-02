@@ -30,18 +30,21 @@ jobs:
         with:
           node-version: '18'
       
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
-          version: latest
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile --shamefully-hoist
+        run: npm install
       
       - name: Build for production
         run: |
-          pnpm run generate-index
-          pnpm generate
+          npm run generate-index
+          npm run generate
         env:
           NODE_ENV: production
           CI: true
