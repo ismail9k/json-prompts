@@ -1,66 +1,43 @@
 <template>
   <div class="app-container">
-    <header class="app-header">
-      <h1 class="app-title">JSON Prompts Gallery</h1>
-      <p class="app-subtitle">ChatGPT Image Generation Prompts</p>
-    </header>
+    <AppHeader 
+      :total-prompts="prompts.length"
+      :total-categories="categories.length"
+    />
+    
+    <FeaturedPrompts
+      v-if="featuredPrompts.length > 0"
+      :featured-prompts="featuredPrompts"
+      @select="selectPrompt"
+      @copy="copyPrompt"
+    />
 
-    <div class="filter-section">
-      <input 
-        v-model="searchTerm" 
-        type="text" 
-        placeholder="Search prompts..." 
-        class="search-input"
-      >
-      <select v-model="selectedCategory" class="category-filter">
-        <option value="">All Categories</option>
-        <option v-for="category in categories" :key="category.id" :value="category.id">
-          {{ category.title }}
-        </option>
-      </select>
-    </div>
+    <FilterSection 
+      v-model:search-term="searchTerm"
+      v-model:selected-category="selectedCategory"
+      :categories="categories"
+    />
 
-    <div class="prompts-grid">
-      <div 
-        v-for="prompt in filteredPrompts" 
-        :key="prompt.id"
-        class="prompt-card"
-        @click="selectPrompt(prompt)"
-      >
-        <div class="prompt-preview">
-          <div class="preview-placeholder">
-            <span class="preview-icon">🎨</span>
-          </div>
-        </div>
-        <div class="prompt-info">
-          <h3 class="prompt-title">{{ prompt.title }}</h3>
-          <div class="prompt-tags">
-            <span v-for="tag in prompt.tags" :key="tag" class="tag">
-              {{ tag }}
-            </span>
-          </div>
-          <button class="copy-btn" @click.stop="copyPrompt(prompt)">
-            Copy JSON
-          </button>
-        </div>
+    <section class="all-prompts-section">
+      <div class="section-header">
+        <h2 class="section-title">All Prompts</h2>
       </div>
-    </div>
-
-    <div v-if="selectedPrompt" class="modal-overlay" @click="closeModal">
-      <div class="modal-content" @click.stop>
-        <div class="modal-header">
-          <h2>{{ selectedPrompt.title }}</h2>
-          <button class="close-btn" @click="closeModal">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-description" v-html="selectedPrompt.description"></div>
-          <pre class="json-display">{{ JSON.stringify(selectedPrompt.promptData, null, 2) }}</pre>
-          <button class="copy-btn-large" @click="copyPrompt(selectedPrompt)">
-            Copy to Clipboard
-          </button>
-        </div>
+      <div class="prompts-grid">
+        <PromptCard
+          v-for="prompt in filteredPrompts"
+          :key="prompt.id"
+          :prompt="prompt"
+          @select="selectPrompt"
+          @copy="copyPrompt"
+        />
       </div>
-    </div>
+    </section>
+
+    <PromptModal
+      :prompt="selectedPrompt"
+      @close="closeModal"
+      @copy="copyPrompt"
+    />
   </div>
 </template>
 
@@ -77,8 +54,17 @@ const categories = computed(() => {
   return indexData.value?.categories || []
 })
 
+const featuredPrompts = computed(() => {
+  return prompts.value.filter(prompt => prompt.featured === true)
+})
+
+const regularPrompts = computed(() => {
+  return prompts.value.filter(prompt => !prompt.featured)
+})
+
 const filteredPrompts = computed(() => {
-  return prompts.value.filter(prompt => {
+  const promptsToFilter = regularPrompts.value
+  return promptsToFilter.filter(prompt => {
     const matchesSearch = prompt.title.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
                          prompt.tags?.some(tag => tag.toLowerCase().includes(searchTerm.value.toLowerCase()))
     
@@ -137,3 +123,47 @@ onMounted(() => {
   loadPrompts()
 })
 </script>
+
+<style scoped>
+@import '@/assets/css/variables.css';
+
+.app-container {
+  min-height: 100vh;
+  background: var(--gradient-background);
+  color: var(--color-text-primary);
+  padding: var(--spacing-xl);
+}
+
+.all-prompts-section {
+  margin-top: var(--spacing-2xl);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.01em;
+}
+
+.prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .prompts-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+</style>

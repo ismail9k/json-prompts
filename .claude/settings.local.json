@@ -1,15 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(npx nuxi:*)",
-      "Bash(mkdir:*)",
-      "Bash(npm run dev:*)",
-      "Bash(rm:*)",
-      "Bash(touch:*)",
-      "Bash(pnpm generate-index:*)",
-      "Bash(pnpm dev:*)",
-      "Bash(curl:*)"
-    ],
+    "allow": ["Bash(*)"],
     "deny": []
   }
 }

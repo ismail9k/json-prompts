@@ -1,9 +1,4 @@
 {
-  "version": "1.0.0",
-  "featured_prompts": [
-    "iridescent-sky-gradient",
-    "cyberpunk-neon"
-  ],
   "categories": [
     {
       "id": "gradient",
