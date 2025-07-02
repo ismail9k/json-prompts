@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "generate-index": "node scripts/generate-index.js",
     "prebuild": "npm run generate-index",
-    "predev": "npm run generate-index"
+    "predev": "npm run generate-index",
+    "pregenerate": "npm run generate-index"
   },
   "dependencies": {
     "nuxt": "^3.17.6",
